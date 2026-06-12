@@ -16,7 +16,7 @@ print("VERİ ÖN İŞLEME BAŞLIYOR...")
 print("=" * 60)
 
 # ============================================================
-# 1. VERİYİ YÜKLE
+# 1. VERİYİ YÜKLEME
 # ============================================================
 df = pd.read_csv('merged_accidents.csv', low_memory=False)
 print(f"Yüklenen kayıt: {df.shape[0]:,}")
@@ -47,7 +47,7 @@ df['Severity_Binary'] = df[target].apply(lambda x: 1 if x in [1, 2] else 0)
 print(f"\nBinary hedef dağılımı:\n{df['Severity_Binary'].value_counts()}")
 
 # ============================================================
-# 4. TARİH/SAAT ÖZELLİKLERİ (ana df varsa)
+# 4. TARİH/SAAT ÖZELLİKLERİ 
 # ============================================================
 df_raw = pd.read_csv('merged_accidents.csv', low_memory=False)
 if 'Date' in df_raw.columns:
@@ -68,7 +68,7 @@ if 'Time' in df_raw.columns:
     print("✓ Saat özellikleri çıkarıldı: Hour, Rush_Hour")
 
 # ============================================================
-# 5. GEÇERSİZ KODLARI TEMİZLE (-1, 99)
+# 5. GEÇERSİZ KODLARI TEMİZLEME (-1, 99)
 # ============================================================
 print("\nGeçersiz değer temizliği:")
 for col in df.select_dtypes(include='number').columns:
@@ -104,7 +104,7 @@ if 'Number_of_Vehicles' in df.columns:
 print(f"\nAykırı değer sonrası: {before:,} → {len(df):,} kayıt")
 
 # ============================================================
-# 8. KATEGORİK DEĞİŞKENLERİ ENCODE ET
+# 8. KATEGORİK DEĞİŞKENLERİ ENCODE ETME
 # ============================================================
 le = LabelEncoder()
 for col in df.select_dtypes(include='object').columns:
@@ -112,7 +112,7 @@ for col in df.select_dtypes(include='object').columns:
 print("\n✓ Label Encoding tamamlandı")
 
 # ============================================================
-# 9. FEATURE VE TARGET AYIR
+# 9. FEATURE VE TARGET AYIRMA
 # ============================================================
 X = df.drop(columns=[target, 'Severity_Binary'])
 y = df['Severity_Binary']
@@ -139,10 +139,10 @@ X_train_sm, y_train_sm = smote.fit_resample(X_train, y_train)
 print(f"SMOTE sonrası : {pd.Series(y_train_sm).value_counts().to_dict()}")
 
 # ============================================================
-# 12. KAYDET
+# 12. KAYDETME
 # ============================================================
 import joblib
 
 joblib.dump((X_train_sm, X_test, y_train_sm, y_test, X.columns.tolist()), 'preprocessed_data.pkl')
-print("\n✅ Ön işleme tamamlandı!")
+print("\n Ön işleme tamamlandı!")
 print("✓ Veriler kaydedildi: preprocessed_data.pkl")
