@@ -14,7 +14,7 @@ plt.rcParams['figure.figsize'] = (12, 6)
 plt.rcParams['font.size'] = 12
 
 # ============================================================
-# 1. VERİYİ YÜKLE VE BİRLEŞTİR
+# 1. VERİYİ YÜKLEME VE BİRLEŞTİRME
 # ============================================================
 print("=" * 60)
 print("VERİ YÜKLENİYOR...")
@@ -137,6 +137,6 @@ if 'Urban_or_Rural_Area' in df.columns:
     plt.show()
     print("✓ Grafik kaydedildi: 04_urban_rural_severity.png")
 
-print("\n✅ EDA tamamlandı!")
+print("\nEDA tamamlandı!")
 df.to_csv('merged_accidents.csv', index=False)
 print("✓ Birleştirilmiş veri kaydedildi: merged_accidents.csv")
