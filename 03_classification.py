@@ -25,13 +25,13 @@ print("CLASSIFICATION MODELLERİ")
 print("=" * 60)
 
 # ============================================================
-# 1. VERİYİ YÜKLE
+# 1. VERİYİ YÜKLEME
 # ============================================================
 X_train, X_test, y_train, y_test, feature_names = joblib.load('preprocessed_data.pkl')
 print(f"Eğitim: {X_train.shape}, Test: {X_test.shape}")
 
 # ============================================================
-# 2. MODELLERİ TANIMLA
+# 2. MODELLERİ TANIMLAMA
 # ============================================================
 models = {
     'Random Forest': RandomForestClassifier(
@@ -59,7 +59,7 @@ models = {
 }
 
 # ============================================================
-# 3. MODELLERİ EĞİT VE DEĞERLENDİR
+# 3. MODELLERİ EĞİTME VE DEĞERLENDİRME
 # ============================================================
 results = {}
 
@@ -107,7 +107,7 @@ compare_df = pd.DataFrame({
 print(compare_df)
 
 # ============================================================
-# 5. KARMASıKLIK MATRİSLERİ
+# 5. KARMASIKLIK MATRİSLERİ
 # ============================================================
 fig, axes = plt.subplots(1, 3, figsize=(18, 5))
 for ax, (name, res) in zip(axes, results.items()):
@@ -178,9 +178,9 @@ plt.show()
 print("✓ SHAP dot plot kaydedildi")
 
 # ============================================================
-# 8. EN İYİ MODELİ KAYDET
+# 8. EN İYİ MODELİ KAYDETME
 # ============================================================
 best_name = max(results, key=lambda x: results[x]['auc'])
 joblib.dump(results[best_name]['model'], 'best_model.pkl')
-print(f"\n✅ En iyi model: {best_name} (AUC={results[best_name]['auc']:.4f})")
+print(f"\nEn iyi model: {best_name} (AUC={results[best_name]['auc']:.4f})")
 print("✓ Model kaydedildi: best_model.pkl")
