@@ -20,7 +20,7 @@ print("K-MEANS CLUSTERING ANALİZİ")
 print("=" * 60)
 
 # ============================================================
-# 1. VERİYİ YÜKLE
+# 1. VERİYİ YÜKLEME
 # ============================================================
 X_train, X_test, y_train, y_test, feature_names = joblib.load('preprocessed_data.pkl')
 
@@ -66,7 +66,7 @@ plt.show()
 print("✓ Elbow grafiği kaydedildi")
 
 # ============================================================
-# 4. K-MEANS UYGULA (k=4)
+# 4. K-MEANS UYGULAMA (k=4)
 # ============================================================
 optimal_k = 4
 print(f"\nK-Means uygulanıyor: k={optimal_k}")
@@ -91,7 +91,7 @@ print(f"Açıklanan varyans: PC1=%{pca.explained_variance_ratio_[0]*100:.1f}, PC
 fig, axes = plt.subplots(1, 2, figsize=(18, 7))
 colors_cluster = ['#1565C0', '#C62828', '#2E7D32', '#F57F17']
 
-# Sol: Kümelere göre renklendir
+# Sol: Kümelere göre renklendirme
 for i in range(optimal_k):
     mask = clusters == i
     ciddi_oran = y_sample[mask].mean() * 100
@@ -104,7 +104,7 @@ axes[0].set_ylabel(f'PC2 (%{pca.explained_variance_ratio_[1]*100:.1f})')
 axes[0].legend(fontsize=10)
 axes[0].grid(alpha=0.2)
 
-# Sağ: Şiddete göre renklendir
+# Sağ: Şiddete göre renklendirme
 colors_sev = ['#388e3c', '#d32f2f']
 labels_sev = ['Hafif', 'Ciddi+Ölümcül']
 for i, (color, label) in enumerate(zip(colors_sev, labels_sev)):
@@ -155,4 +155,4 @@ plt.savefig('11_cluster_profiles.png', dpi=150, bbox_inches='tight')
 plt.show()
 print("✓ Küme profil grafiği kaydedildi")
 
-print("\n✅ Clustering tamamlandı!")
+print("\nClustering tamamlandı!")
