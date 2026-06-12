@@ -1,5 +1,5 @@
-# Trafik-Kaza-Analizi1
-# Trafik Kaza Tahmin Sistemi 🚗💥
+# Trafik-Kaza-Analizi
+# Trafik Kaza Tahmin Sistemi 
 
 Bu proje, Birleşik Krallık'ta 2005-2014 yılları arasında meydana gelen trafik kazalarını analiz ederek, bir kazanın ciddiyetini (ölümcül/ciddi veya hafif) tahmin eden bir makine öğrenmesi modeli geliştirmeyi amaçlamaktadır.
 
