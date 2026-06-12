@@ -15,7 +15,7 @@ print("ZAMAN SERİSİ ANALİZİ")
 print("=" * 60)
 
 # ============================================================
-# 1. VERİYİ YÜKLE
+# 1. VERİYİ YÜKLEME
 # ============================================================
 df = pd.read_csv('merged_accidents.csv', low_memory=False)
 
@@ -157,4 +157,4 @@ print(f"En kalabalık saat: {en_cok_kaza_saat}:00 (en çok kaza)")
 print(f"En riskli ay     : {ay_isimleri[en_riskli_ay-1]}")
 print(f"En riskli mevsim : {en_riskli_mevsim}")
 
-print("\n✅ Zaman serisi analizi tamamlandı!")
+print("\nZaman serisi analizi tamamlandı!")
